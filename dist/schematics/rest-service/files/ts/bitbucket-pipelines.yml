@@ -1,0 +1,105 @@
+image:
+  name: lineage-linos-docker.jfrog.io/linos-utility-image:0.0.3
+  username: $LINOS_HOST_REPOSITORY_USERNAME
+  password: $LINOS_HOST_REPOSITORY_SECRET
+
+definitions:
+  steps:
+    - step: &sonarQubeScan
+        name: SonarQube scan
+        image:
+          name: sonarsource/sonar-scanner-cli
+        script:
+          - sonar-scanner -Dsonar.host.url=${SONARQUBE_HOST_URL} -Dsonar.login=${SONARQUBE_TOKEN} -Dsonar.projectKey=dynamic-dashboard -Dsonar.sources=./src
+    - step: &buildImage
+        name: Building Docker image
+        script:
+          - make build
+          - docker images
+          - mkdir -p temp
+          - docker save --output temp/${BITBUCKET_COMMIT}.tar ${LINOS_DOCKER_REGISTRY}/${LINOS_PLATFORM_COMPONENT_NAME}:${BITBUCKET_COMMIT}
+        artifacts:
+          - temp/**
+        services:
+          - docker
+    - step: &testImage
+        name: Test Docker image
+        image:
+          name: lineage-linos-docker.jfrog.io/linos-node-make-image:0.1.1
+          username: $LINOS_HOST_REPOSITORY_USERNAME
+          password: $LINOS_HOST_REPOSITORY_SECRET
+        script:
+          - make install
+          - make test
+    - step: &artifactoryUpload
+        name: Uploading build to Artifactory
+        image:
+          name: lineage-linos-docker.jfrog.io/linos-jfrog-image:0.0.2
+          username: $LINOS_HOST_REPOSITORY_USERNAME
+          password: $LINOS_HOST_REPOSITORY_SECRET
+        script:
+          - docker load --input temp/${BITBUCKET_COMMIT}.tar
+          - jfrog rt config --url=${LINOS_ARTIFACTORY_HOST_URL} --user=${LINOS_HOST_REPOSITORY_USERNAME} --password=${LINOS_HOST_REPOSITORY_SECRET} --interactive=false
+          - jfrog rt dp lineage-linos-docker.jfrog.io/${LINOS_PLATFORM_COMPONENT_NAME}:${BITBUCKET_COMMIT} linos-docker --build-name=linos-${LINOS_PLATFORM_COMPONENT_NAME} --build-number=${BITBUCKET_BUILD_NUMBER}
+          - jfrog rt bp linos-${LINOS_PLATFORM_COMPONENT_NAME} ${BITBUCKET_BUILD_NUMBER}
+          - jfrog rt bce linos-${LINOS_PLATFORM_COMPONENT_NAME} ${BITBUCKET_BUILD_NUMBER}
+          - jfrog rt bag linos-${LINOS_PLATFORM_COMPONENT_NAME} ${BITBUCKET_BUILD_NUMBER}
+        services:
+          - docker
+    - step: &jFrogXRAY
+        name: Conducting JFrog XRay analysis
+        image:
+          name: lineage-linos-docker.jfrog.io/linos-jfrog-image:0.0.2
+          username: $LINOS_HOST_REPOSITORY_USERNAME
+          password: $LINOS_HOST_REPOSITORY_SECRET
+        script:
+          - jfrog rt config --url=${LINOS_ARTIFACTORY_HOST_URL} --user=${LINOS_HOST_REPOSITORY_USERNAME} --password=${LINOS_HOST_REPOSITORY_SECRET} --interactive=false
+          - jfrog rt bs --fail=false linos-${LINOS_PLATFORM_COMPONENT_NAME} ${BITBUCKET_BUILD_NUMBER}
+pipelines:
+  branches:
+    "feature/LFR-*":
+      - step: *buildImage
+      - step: *testImage
+      - step: *artifactoryUpload
+      - step:
+          name: Deploy
+          deployment: lineage-dev
+          script:
+            - make deploy
+    "bugfix/LFR-*":
+      - step: *buildImage
+      - step: *testImage
+    "hotfix/*":
+      - step: *buildImage
+      - step: *testImage
+    "improvement/*":
+      - step: *buildImage
+      - step: *testImage
+    development:
+      - step: *buildImage
+      - step: *testImage
+      - step: *artifactoryUpload
+      - step:
+          name: Deploy
+          deployment: lineage-dev
+          script:
+            - make deploy
+    release/qa:
+      - step: *buildImage
+      - step: *artifactoryUpload
+      - step:
+          name: Deploy
+          deployment: lineage-qa
+          script:
+            - make deploy
+    release/uat:
+      - step: *buildImage
+      - step: *artifactoryUpload
+      - step:
+          name: Deploy
+          deployment: lineage-uat
+          script:
+            - make deploy
+
+options:
+  docker: true
