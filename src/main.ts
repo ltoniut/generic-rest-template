@@ -19,8 +19,8 @@ async function bootstrap(): Promise<void> {
   app.setGlobalPrefix(new EnvironmentService().getEnvs().GLOBAL_ROUTES_PREFIX);
 
   const options = new DocumentBuilder()
-    .setTitle('New REST API')
-    .setDescription('NestJS API')
+    .setTitle('API Rest nueva')
+    .setDescription('API Rest para desarrollo automatizado')
     .setVersion('1.0')
     .build();
   const document = SwaggerModule.createDocument(app, options);

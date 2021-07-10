@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
 # build script
-# <linos>
 
 # A better class of script...
 set -o errexit  # Exit on most errors (see the manual)
@@ -33,8 +32,8 @@ function main() {
 
     prebuild
     begin
-        pretty_print "building image ${LINOS_HOST_IMAGE_NAME}:${BITBUCKET_COMMIT}"
-        docker build . -t "${LINOS_HOST_IMAGE_NAME}:${BITBUCKET_COMMIT}" -f ./Dockerfile --build-arg NPM_TOKEN=$NPM_TOKEN
+        pretty_print "building image ${HOST_IMAGE_NAME}:${BITBUCKET_COMMIT}"
+        docker build . -t "${HOST_IMAGE_NAME}:${BITBUCKET_COMMIT}" -f ./Dockerfile --build-arg NPM_TOKEN=$NPM_TOKEN
     end
 }
 

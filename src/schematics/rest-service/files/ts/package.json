@@ -2,7 +2,7 @@
   "name": "@rest/<%= name %>",
   "version": "<%= version %>",
   "description": "<%= description %>",
-  "author": "User.io",
+  "author": "<%= author %>",
   "license": "MIT",
   "scripts": {
     "prebuild": "rimraf dist",

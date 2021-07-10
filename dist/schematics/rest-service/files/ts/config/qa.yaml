@@ -5,7 +5,7 @@ replicaCount: 1
 service:
   port: <%= port %>
 
-baseSubdomain: linosconnect
+baseSubdomain: restProject
 
 initContainer:
   command: false
@@ -14,7 +14,7 @@ envVars:
   - name: PORT
     value: '<%= port %>'
   - name: RDS_TYPE
-    value: mssql
+    value: mysql
   - name: RDS_HOSTNAME
     value: us0328-tst-mrs-rdssqldb-00.cbmuittvt2tm.us-east-1.rds.amazonaws.com
   - name: RDS_USERNAME

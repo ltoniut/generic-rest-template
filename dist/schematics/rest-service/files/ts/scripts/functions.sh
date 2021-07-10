@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
 # cluster functions script
-# <linos>
 
 # DESC: (Common script arguments)
 # ARGS: None
@@ -455,7 +454,7 @@ function import_env_vars() {
     # Source the vars that are committed to source control
     import "./config/base"
 
-    if [[ "${LINOS_CLUSTER_ENV:-}" == "AWS" ]]; then
+    if [[ "${CLUSTER_ENV:-}" == "AWS" ]]; then
         pretty_print 'CI detected, not importing config/credentials...' $fg_green
     else
         pretty_print 'Running locally, importing config/credentials...' $fg_green

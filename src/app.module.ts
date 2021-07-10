@@ -10,6 +10,14 @@ import { loadSchemas } from 'northwind-rest-commons/dist/schemas/model-builders'
 
 import { AppController } from 'app.controller';
 import { AppService } from 'app.service';
+import { CategoryModule } from './modules/category/module';
+import { CustomerModule } from './modules/customer/module';
+import { EmployeeModule } from './modules/employee/module';
+import { OrderModule } from './modules/order/module';
+import { OrderDetailsModule } from './modules/order-details/module';
+import { ProductModule } from './modules/product/module';
+import { ShipperModule } from './modules/shipper/module';
+import { SupplierModule } from './modules/supplier/module';
 
 const cacheImports: DynamicModule[] = [];
 loadSchemas();
@@ -57,6 +65,14 @@ if (process.env.ENABLE_CACHE) {
       },
       resolvers: [new HeaderResolver(['lang'])],
     }),
+    CategoryModule,
+    CustomerModule,
+    EmployeeModule,
+    OrderModule,
+    OrderDetailsModule,
+    ProductModule,
+    ShipperModule,
+    SupplierModule,
   ],
   controllers: [AppController],
   providers: [AppService],

@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
 # shutdown script
-# <linos>
 
 # A better class of script...
 set -o errexit  # Exit on most errors (see the manual)
@@ -29,16 +28,16 @@ function main() {
 
     begin
     # stop any running containers that have this name
-    if [ ! "$(docker ps -q -f name="${LINOS_HOST_CONTAINER_NAME}")" ]; then
-        echo "${LINOS_HOST_CONTAINER_NAME} : is NOT running."
+    if [ ! "$(docker ps -q -f name="${HOST_CONTAINER_NAME}")" ]; then
+        echo "${HOST_CONTAINER_NAME} : is NOT running."
     else
-        echo "${LINOS_HOST_CONTAINER_NAME} : is running."
-        # docker container stop "${LINOS_HOST_CONTAINER_NAME}"
+        echo "${HOST_CONTAINER_NAME} : is running."
+        # docker container stop "${HOST_CONTAINER_NAME}"
         docker-compose down -v
-        echo "${LINOS_HOST_CONTAINER_NAME} : stopped."
-        docker rm "${LINOS_HOST_CONTAINER_NAME}"
+        echo "${HOST_CONTAINER_NAME} : stopped."
+        docker rm "${HOST_CONTAINER_NAME}"
         docker rm "postgres"
-        echo "${LINOS_HOST_CONTAINER_NAME} : removed."
+        echo "${HOST_CONTAINER_NAME} : removed."
     fi
 
     end

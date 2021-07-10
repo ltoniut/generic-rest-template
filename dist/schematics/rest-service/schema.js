@@ -9,7 +9,7 @@ exports.default = {
         {
             type: 'input',
             name: 'name',
-            message: 'Rest Service Name?',
+            message: 'Nombre del servicio Rest?',
             validate: (value) => {
                 return !!value.trim() || 'Please enter a name for the project';
             }
@@ -17,38 +17,37 @@ exports.default = {
         {
             type: 'input',
             name: 'author',
-            message: 'Who is the author of the project?',
-            default: 'Leandro'
+            message: 'Quién es el autor del proyecto?',
         },
         {
             type: 'input',
             name: 'description',
-            message: 'Which is the description of the project?',
+            message: 'Cual es la descipción del proyecto?',
         },
         {
             type: 'input',
             name: 'version',
-            message: 'Which is the version of the project?',
+            message: 'Cual es la versión del proyecto?',
             default: '0.0.1'
         },
         {
             type: 'number',
             name: 'port',
-            message: 'In which port will it run?',
+            message: 'En qué puerto va a correr?',
             default: 3000
         },
         {
             type: 'confirm',
             name: 'persistence',
-            message: 'Do you want to override default database configuration?',
+            message: 'Quieres sobreescribir las configuraciones de bases de datos predeterminadas?',
             default: false
         },
         {
             type: 'input',
             name: 'rdsHostName',
-            message: 'Enter RDS Hostname?',
+            message: 'Host de la bases de datos?',
             validate: (value) => {
-                return !!value.trim() || 'Please enter RDS Hostname';
+                return !!value.trim() || 'Por favor seleccione el host de la bases de datos';
             },
             when: (answers) => {
                 return answers.persistence;
@@ -58,25 +57,25 @@ exports.default = {
         {
             type: 'input',
             name: 'rdsUsername',
-            message: 'Enter RDS Username?',
+            message: 'Nombre de usuario de la bases de datos?',
             validate: (value) => {
-                return !!value.trim() || 'Please enter RDS Username';
+                return !!value.trim() || 'Por favor seleccione el nombre de usuario de la base de datos';
             },
         },
         {
             type: 'password',
             name: 'rdsPassword',
-            message: 'Enter RDS Password?',
+            message: 'Password de la bases de datos?',
             validate: (value) => {
-                return !!value.trim() || 'Please enter RDS Password';
+                return !!value.trim() || 'Por favor seleccione el password de la conexión de bases de datos';
             },
         },
         {
             type: 'input',
             name: 'rdsDbName',
-            message: 'Enter RDS Database Name?',
+            message: 'Nombre de la bases de datos?',
             validate: (value) => {
-                return !!value.trim() || 'Please enter RDS Database Name';
+                return !!value.trim() || 'Por favor seleccione el nombre de la base de datos';
             },
             when: (answers) => {
                 return answers.persistence;
@@ -86,7 +85,7 @@ exports.default = {
         {
             type: 'number',
             name: 'rdsDbPort',
-            message: 'Enter RDS Port?',
+            message: 'Puerto de la bases de datos?',
             when: (answers) => {
                 return answers.persistence;
             },

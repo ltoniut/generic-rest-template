@@ -5,7 +5,7 @@ replicaCount: 1
 service:
   port: <%= port %>
 
-baseSubdomain: linosconnect
+baseSubdomain: restProject
 
 initContainer:
   command: false

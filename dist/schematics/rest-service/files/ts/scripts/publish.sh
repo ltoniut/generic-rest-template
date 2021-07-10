@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
 # publish script
-# <linos>
 
 # A better class of script...
 set -o errexit  # Exit on most errors (see the manual)
@@ -18,14 +17,14 @@ function publish_docker_image(){
     echo "publishing docker image"
 
      # login to the container repository
-    echo "${LINOS_HOST_REPOSITORY_SECRET}" | docker login "${LINOS_DOCKER_REGISTRY}" --username "${LINOS_HOST_REPOSITORY_USERNAME}" --password-stdin
+    echo "${HOST_REPOSITORY_SECRET}" | docker login "${DOCKER_REGISTRY}" --username "${HOST_REPOSITORY_USERNAME}" --password-stdin
 
     # commit changes to container (update)
-    docker push "${LINOS_HOST_IMAGE_NAME}"
+    docker push "${HOST_IMAGE_NAME}"
 
     # logout of the container repository
     # shellcheck disable=SC2086
-    docker logout ${LINOS_DOCKER_REGISTRY}
+    docker logout ${DOCKER_REGISTRY}
 }
 
 # DESC: publish helm chart

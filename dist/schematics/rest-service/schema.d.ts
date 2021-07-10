@@ -13,15 +13,15 @@ declare const _default: {
         type: string;
         name: string;
         message: string;
-        default: string;
         validate?: undefined;
+        default?: undefined;
         when?: undefined;
     } | {
         type: string;
         name: string;
         message: string;
+        default: string;
         validate?: undefined;
-        default?: undefined;
         when?: undefined;
     } | {
         type: string;
@@ -41,28 +41,28 @@ declare const _default: {
         type: string;
         name: string;
         message: string;
-        validate: (value: any) => true | "Please enter RDS Hostname";
+        validate: (value: any) => true | "Por favor seleccione el host de la bases de datos";
         when: (answers: any) => any;
         default: string;
     } | {
         type: string;
         name: string;
         message: string;
-        validate: (value: any) => true | "Please enter RDS Username";
+        validate: (value: any) => true | "Por favor seleccione el nombre de usuario de la base de datos";
         default?: undefined;
         when?: undefined;
     } | {
         type: string;
         name: string;
         message: string;
-        validate: (value: any) => true | "Please enter RDS Password";
+        validate: (value: any) => true | "Por favor seleccione el password de la conexión de bases de datos";
         default?: undefined;
         when?: undefined;
     } | {
         type: string;
         name: string;
         message: string;
-        validate: (value: any) => true | "Please enter RDS Database Name";
+        validate: (value: any) => true | "Por favor seleccione el nombre de la base de datos";
         when: (answers: any) => any;
         default: string;
     } | {

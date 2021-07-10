@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
 # deploy script
-# <linos>
 
 # A better class of script...
 set -o errexit  # Exit on most errors (see the manual)

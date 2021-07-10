@@ -2,7 +2,7 @@
   "name": "@rest/<%= name %>",
   "version": "<%= version %>",
   "description": "<%= description %>",
-  "author": "User.io",
+  "author": "<%= author %>",
   "license": "MIT",
   "scripts": {
     "prebuild": "rimraf dist",
@@ -30,8 +30,6 @@
     "typeorm": "ts-node -r tsconfig-paths/register ./node_modules/typeorm/cli.js"
   },
   "dependencies": {
-    "@linos/backend-auth-module": "0.0.5",
-    "@linos/message-bus-sdk": "0.0.4",
     "@nestjs/common": "^7.0.7",
     "@nestjs/config": "^0.4.2",
     "@nestjs/core": "^7.0.0",

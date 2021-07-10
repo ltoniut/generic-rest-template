@@ -4,7 +4,6 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import * as redisStore from 'cache-manager-redis-store';
 import { I18nModule, I18nJsonParser, HeaderResolver } from 'nestjs-i18n';
 
-import { AuthModule } from 'modules/auth/auth.module';
 import { EnvironmentModule } from 'modules/environment/environment.module';
 import { EnvironmentService } from 'modules/environment/environment.service';
 import { loadSchemas } from 'northwind-rest-commons/dist/schemas/model-builders';
@@ -41,7 +40,6 @@ if (process.env.ENABLE_CACHE) {
   imports: [
     ...cacheImports,
     ConfigModule.forRoot({ isGlobal: true }),
-    AuthModule,
     // ResourceModule,
     // LinksModule,
     TypeOrmModule.forRootAsync({

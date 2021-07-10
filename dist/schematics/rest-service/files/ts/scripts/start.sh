@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
 # startup script
-# <linos>
 
 # A better class of script...
 set -o errexit  # Exit on most errors (see the manual)
@@ -29,11 +28,11 @@ function main() {
 
     begin
     # stop any running containers that have this name
-    if [ "$(docker ps -a -q -f name="${LINOS_HOST_CONTAINER_NAME}")" ]; then
-        docker rm "${LINOS_HOST_CONTAINER_NAME}"
+    if [ "$(docker ps -a -q -f name="${HOST_CONTAINER_NAME}")" ]; then
+        docker rm "${HOST_CONTAINER_NAME}"
     fi
     # run the container
-    # docker run -p "${LINOS_PLATFORM_COMPONENT_EXTERNAL_PORT}":"${LINOS_PLATFORM_COMPONENT_EXTERNAL_PORT}" -d --name="${LINOS_HOST_CONTAINER_NAME}" "${LINOS_HOST_IMAGE_NAME}"
+    # docker run -p "${PLATFORM_COMPONENT_EXTERNAL_PORT}":"${PLATFORM_COMPONENT_EXTERNAL_PORT}" -d --name="${HOST_CONTAINER_NAME}" "${HOST_IMAGE_NAME}"
     docker-compose down -v
     docker-compose build --no-cache
     docker-compose up

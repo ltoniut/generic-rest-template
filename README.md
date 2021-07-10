@@ -1,43 +1,45 @@
-# What is this project?
+# Objetivo del proyecto
 
-This project is a schematic for generating NestJS projects.
+Éste proyecto es un schema para generar proyectos de NestJS
 
+## Uso
 
-## Usage
+Para utilizar éste proyecto, luego de clonarlo, se debe en principio realizar la instalación en el directorio base, ejecutando el comando "npm install" o, si se tiene yarn instalado, "yarn install". También se necesitará instalar nestjs globalmente con el comando
 
-For using this as a collection for NestJS CLI you have to install this packages globally first:
-
-```bash
-npm i -g https://bitbucket.org/lineagenext/generic-rest-api-template.git
+```
+npm install -g nestjs
 ```
 
-Then you can refer to the package from the nest CLI with:
+### Crear una aplicación
 
-```bash
-# For generating an app
-nest g -c ./generic-rest-api-template rest-service
+Para la creación del servicio, primero se deberá ejecutar el comando:
+
+```
+nest g -c @directorio/generic-rest-template rest-service
 ```
 
-```bash
-# For generating crud modules for a single or a list of entities
-nest g -c ../generic-rest-api-template rest-resource
-```
-
-### Generating an app
-
-If you generate an app, the available parameters are (will be asqued at runtime):
+Al hacerlo, el desarrollador deberá responder una serie de preguntas acerca del proyecto que se generará:
 
 | Name                | Type    | Optional | Default                                 | Description                                                                                                                 |
 |---------------------|---------|----------|-----------------------------------------|-----------------------------------------------------------------------------------------------------------------------------|
-| name                | string  | No       | -                                       | The Rest Service name. Used in the code and in the folder name                                                             |
-| author              | string  | Yes      | Local User                               | The project author. Appears in package.json                                                                                 |
-| description         | string  | Yes      | -                                       | The project description. Appears in package.json                                                                            |
-| version             | string  | Yes      | 0.0.1                                   | The project version. Appears in package.json                                                                                |
-| port                | number  | No       | 3000                                    | The application port         |
-| persistence         | boolean | No       | true                                    | Whether the app is going to override the default persistence settings |
-| rdsHostName         | string  | Yes      | Rds hostname in defaults.ts             | The RDS Hostname                                                                                                            |
-| rdsUsername         | string  | No       | _                                       | The RDS username                                                                                                            |
-| rdsPassword         | string  | No       | _                                       | The RDS password                                                                                                            |
-| rdsDbName           | string  | Yes      | CONNECT_55                              | The RDS database name                                                                                                       |
-| rdsPort             | number  | Yes      | 1433                                    | The RDS port number                                                                                                         |
+| name                | string  | No       | -                                    | El nombre del servicio REST. Figura en package.json                      |
+| author              | string  | Yes      | Local User                           | El autor del proyecto. Figura en package.json       |
+| description         | string  | Yes      | -                                    | Descriptión del proyecto. Figura en package.json          |
+| version             | string  | Yes      | 0.0.1                                | La versión del proyecto. Figura en package.json             |
+| port                | number  | No       | 3000                                 | El puerto de la aplicación         |
+| persistence         | boolean | No       | true                                 | Si la aplicación hará un override de los settings de persistencia default |
+| rdsHostName         | string  | Yes      | Hostname en defaults.ts              | Host de la base de datos                    |
+| rdsUsername         | string  | No       | _                                    | Nombre de usuario de la base de datos           |
+| rdsPassword         | string  | No       | _                                    | Contraseña de la base de datos            |
+| rdsDbName           | string  | Yes      | _                                    | Nombre de la base de datos         |
+| rdsPort             | number  | Yes      | _                                    | Puerto de la base de datos                  |
 
+## Crear una lista de entidades
+
+Sobre una aplicación ya creada, ejecutar el siguiente comando, referiendo a la ubicación de generic-rest-template
+
+```
+nest g -c @directorio/generic-rest-template rest-resource
+```
+
+Al hacerlo, se dará la opción entre crearlo para un único nombre de entidad, o un archivo .json

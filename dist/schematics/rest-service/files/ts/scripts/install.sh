@@ -1,7 +1,6 @@
 #!/bin/bash
 
 # install development tools
-# <linos>
 
 # A better class of script...
 set -o errexit  # Exit on most errors (see the manual)
