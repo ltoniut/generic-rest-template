@@ -22,7 +22,7 @@ Asumiendo una instalación correcta, se debería poder inicializar el proyecto u
 http://localhost:3000/
 
 Deberías ver el mensaje:
-```API is Live```
+```Api is Live```
 
 ## Estructura del proyecto
 
@@ -53,10 +53,6 @@ Deberías ver el mensaje:
     ./scripts/stop.sh           -Script de detención del proyecto
 
 ```
-
-### Configuraciones de búsqueda
-
-En el constructor de repositorios de cada módulo hay dos arrays que, por defecto, están vacíos. Si se quisieran habilitar opciones de filtro o de ordenamiento de datos en los GET, se deben llenar los arrays con los nombres de las variables relevantes, en forma de strings. El primer arreglo maneja las variables de ordenamiento, y el segundo las de filtro, y pueden ser invocadas usando sortBy o filterBy, respectivamente, en los parámetros de búsqueda de una llamada GET.
 
 ### Documentación de NestJS
 
