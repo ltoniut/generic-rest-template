@@ -2,7 +2,7 @@
   "name": "@rest/<%= name %>",
   "version": "<%= version %>",
   "description": "<%= description %>",
-  "author": "User.io",
+  "author": "<%= author %>",
   "license": "MIT",
   "scripts": {
     "prebuild": "rimraf dist",
@@ -47,7 +47,7 @@
     "dotenv": "^8.2.0",
     "jsonwebtoken": "^8.5.1",
     "jwks-rsa": "^1.8.0",
-    "northwind-rest-commons": "../northwind-rest-commons",
+    "rest-commons": "../rest-commons",
     "moment": "^2.27.0",
     "mssql": "^6.2.0",
     "nestjs-i18n": "^8.0.2",

@@ -1,6 +1,6 @@
-import { BaseController } from 'northwind-rest-commons/dist/shared/baseModules/controller';
-import { BaseService } from 'northwind-rest-commons/dist/shared/baseModules/service';
-import { BaseRepository } from 'northwind-rest-commons/dist/shared/baseModules/repository';
+import { BaseController } from 'rest-commons/dist/shared/baseModules/controller';
+import { BaseService } from 'rest-commons/dist/shared/baseModules/service';
+import { BaseRepository } from 'rest-commons/dist/shared/baseModules/repository';
 <% const entityHelper = new EntityHelper(classify(name)) %>
 import { <%= entityHelper.getEntityName() %> } from '<%= entityHelper.getPath() %>';
 

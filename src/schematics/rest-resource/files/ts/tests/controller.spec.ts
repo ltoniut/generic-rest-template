@@ -1,6 +1,6 @@
 import { Test } from '@nestjs/testing';
-import { mockService } from 'northwind-rest-commons/dist/shared/tests/mock-factories';
-import {} from 'northwind-rest-commons/dist/shared/tests/baseMocks';
+import { mockService } from 'rest-commons/dist/shared/tests/mock-factories';
+import {} from 'rest-commons/dist/shared/tests/baseMocks';
 import { <%= classify(name) %>ControllerImpl } from '../controller';
 import {
   <%= classify(name) %>Controller,

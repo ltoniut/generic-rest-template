@@ -1,7 +1,0 @@
-{
-  "extends": "../../tsconfig.json",
-  "paths": {
-    "@resource/*": "resource/*",
-    "@link/*": "link/*"
-  }
-}

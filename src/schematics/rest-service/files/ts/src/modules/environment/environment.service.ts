@@ -42,7 +42,7 @@ export class EnvironmentService {
 
   getTypeORMEnvs(): TypeOrmModuleOptions {
     const typeOrmFolder = path.resolve(
-      `${__dirname}/../../../../node_modules/northwind-rest-commons/dist/typeorm`,
+      `${__dirname}/../../../../node_modules/rest-commons/dist/typeorm`,
     );
     return {
       type: this.envs.RDS_TYPE,

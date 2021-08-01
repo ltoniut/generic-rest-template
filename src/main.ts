@@ -3,7 +3,6 @@ import { ValidationPipe } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 
-import { JwtAuthGuard } from 'modules/auth/jwt-auth.guard';
 import { EnvironmentService } from 'modules/environment/environment.service';
 import { AppModule } from 'app.module';
 
@@ -12,7 +11,6 @@ async function bootstrap(): Promise<void> {
     cors: true,
   });
 
-  app.useGlobalGuards(new JwtAuthGuard());
   app.useGlobalPipes(
     new ValidationPipe({
       transform: true,
@@ -21,8 +19,8 @@ async function bootstrap(): Promise<void> {
   app.setGlobalPrefix(new EnvironmentService().getEnvs().GLOBAL_ROUTES_PREFIX);
 
   const options = new DocumentBuilder()
-    .setTitle('LinOS Connect Inventory API')
-    .setDescription('API docs for the Inventory API')
+    .setTitle('API Rest nueva')
+    .setDescription('API Rest para desarrollo automatizado')
     .setVersion('1.0')
     .build();
   const document = SwaggerModule.createDocument(app, options);

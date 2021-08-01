@@ -1,6 +1,6 @@
 import { Test } from '@nestjs/testing';
-import { mockRepository } from 'northwind-rest-commons/dist/shared/tests/mock-factories';
-import { loadSchemas } from 'northwind-rest-commons/dist/schemas/model-builders';
+import { mockRepository } from 'rest-commons/dist/shared/tests/mock-factories';
+import { loadSchemas } from 'rest-commons/dist/schemas/model-builders';
 import { <%= classify(name) %>Repository, <%= classify(name) %>RepositoryKey } from '../interfaces';
 import { <%= classify(name) %>ServiceImpl } from '../service';
 

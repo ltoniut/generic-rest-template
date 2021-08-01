@@ -19,7 +19,7 @@
   "keywords": [
     "schematics"
   ],
-  "author": "Levvel.io",
+  "author": "ltoniut",
   "license": "MIT",
   "schematics": "./dist/collection.json",
   "dependencies": {
@@ -27,7 +27,7 @@
     "@angular-devkit/schematics": "^10.1.2",
     "inquirer": "^7.3.3",
     "jsonpath": "^1.1.0",
-    "northwind-rest-commons": "../northwind-rest-commons",
+    "rest-commons": "../rest-commons",
     "pluralize": "8.0.0",
     "rxjs": "^6.6.3"
   },

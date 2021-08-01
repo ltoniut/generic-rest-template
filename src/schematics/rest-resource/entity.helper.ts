@@ -1,12 +1,12 @@
-import schemas from 'northwind-rest-commons/dist/schemas/model-builders';
+import schemas from 'rest-commons/dist/schemas/model-builders';
 import * as jsonPath from 'jsonpath';
 
 /**
  * Helper class to grab information from entities.
  */
 export class EntityHelper {
-  private DOMAIN_ENTITY_PATH = 'northwind-rest-commons/dist/typeorm/domain-entities/';
-  private ENTITY_PATH = 'northwind-rest-commons/dist/typeorm/entities/';
+  private DOMAIN_ENTITY_PATH = 'rest-commons/dist/typeorm/domain-entities/';
+  private ENTITY_PATH = 'rest-commons/dist/typeorm/entities/';
 
   constructor(private entityName: string) {}
 

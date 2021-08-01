@@ -1,13 +1,13 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.EntityHelper = void 0;
-const model_builders_1 = require("northwind-rest-commons/dist/schemas/model-builders");
+const model_builders_1 = require("rest-commons/dist/schemas/model-builders");
 const jsonPath = require("jsonpath");
 class EntityHelper {
     constructor(entityName) {
         this.entityName = entityName;
-        this.DOMAIN_ENTITY_PATH = 'northwind-rest-commons/dist/typeorm/domain-entities/';
-        this.ENTITY_PATH = 'northwind-rest-commons/dist/typeorm/entities/';
+        this.DOMAIN_ENTITY_PATH = 'rest-commons/dist/typeorm/domain-entities/';
+        this.ENTITY_PATH = 'rest-commons/dist/typeorm/entities/';
     }
     isDomainEntity() {
         return this.moduleExists(`${this.DOMAIN_ENTITY_PATH}${this.entityName}DO`);

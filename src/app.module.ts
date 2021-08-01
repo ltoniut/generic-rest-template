@@ -4,13 +4,23 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import * as redisStore from 'cache-manager-redis-store';
 import { I18nModule, I18nJsonParser, HeaderResolver } from 'nestjs-i18n';
 
-import { AuthModule } from 'modules/auth/auth.module';
 import { EnvironmentModule } from 'modules/environment/environment.module';
 import { EnvironmentService } from 'modules/environment/environment.service';
-import { loadSchemas } from 'northwind-rest-commons/dist/schemas/model-builders';
 
 import { AppController } from 'app.controller';
 import { AppService } from 'app.service';
+
+import { loadSchemas } from 'rest-commons/dist/schemas/model-builders';
+
+//
+// Reemplazar por contenidos de module-variables.ts
+//
+
+import { Placeholder as PlaceholderModule } from './modules/placeholder/module';
+
+//
+//
+//
 
 const cacheImports: DynamicModule[] = [];
 loadSchemas();
@@ -41,7 +51,6 @@ if (process.env.ENABLE_CACHE) {
   imports: [
     ...cacheImports,
     ConfigModule.forRoot({ isGlobal: true }),
-    AuthModule,
     // ResourceModule,
     // LinksModule,
     TypeOrmModule.forRootAsync({
@@ -59,6 +68,16 @@ if (process.env.ENABLE_CACHE) {
       },
       resolvers: [new HeaderResolver(['lang'])],
     }),
+
+    //
+    // Reemplazar por contenidos de .module-variables
+    //
+
+    PlaceholderModule,
+
+    //
+    // Reemplazar por contenidos de .module-variables
+    //
   ],
   controllers: [AppController],
   providers: [AppService],

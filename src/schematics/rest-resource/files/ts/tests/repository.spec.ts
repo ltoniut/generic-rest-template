@@ -1,6 +1,6 @@
 import { Test } from '@nestjs/testing';
 import { getEntityManagerToken } from '@nestjs/typeorm';
-import { mockManager } from 'northwind-rest-commons/dist/shared/tests/mock-factories';
+import { mockManager } from 'rest-commons/dist/shared/tests/mock-factories';
 import { EntityManager } from 'typeorm';
 import { <%= classify(name) %>RepositoryKey } from '../interfaces';
 import { <%= classify(name) %>RepositoryImpl } from '../repository';
