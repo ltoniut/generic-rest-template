@@ -16,7 +16,7 @@ envVars:
   - name: RDS_TYPE
     value: mssql
   - name: RDS_HOSTNAME
-    value: 127.0.0.1
+    value: us0328-tst-mrs-rdssqldb-00.cbmuittvt2tm.us-east-1.rds.amazonaws.com
   - name: RDS_USERNAME
     valueFrom:
       secretKeyRef:
@@ -44,7 +44,6 @@ envVars:
         key: REDIS_PASSWORD  
   - name: GLOBAL_ROUTES_PREFIX
     value: connect-inventory-api
-
 
 #envVars:
 #   - name: EXAMPLE_VAR

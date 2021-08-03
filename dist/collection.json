@@ -1,0 +1,15 @@
+{
+  "$schema": "../node_modules/@angular-devkit/schematics/collection-schema.json",
+  "schematics": {
+    "rest-service": {
+      "factory": "./schematics/rest-service/application.factory#main",
+      "description": "Create a New rest Service Skeleton.",
+      "schema": "./schematics/rest-service/schema.json"
+    },
+    "rest-resource":{
+      "factory": "./schematics/rest-resource/resource.factory#main",
+      "description": "Create a New rest resource",
+      "schema": "./schematics/rest-resource/schema.json"
+    }
+  }
+}

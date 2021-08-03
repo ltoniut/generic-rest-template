@@ -3,16 +3,16 @@ replicaCount: 1
 
 # Provide the service type and service port, if the pod needs to be access within cluster the
 service:
-  port: <%= port %>
+  port: 3008
 
-baseSubdomain: restProject
+baseSubdomain: linosconnect
 
 initContainer:
   command: false
 
 envVars:
   - name: PORT
-    value: '<%= port %>'
+    value: '3008'
   - name: RDS_TYPE
     value: mssql
   - name: RDS_HOSTNAME
@@ -28,13 +28,13 @@ envVars:
         name: rds-password
         key: RDS_PASSWORD
   - name: RDS_DB_NAME
-    value: CONNECT_55
+    value: 
   - name: RDS_PORT
     value: '1433'
   - name: NODE_ENV
     value: dev
   - name: REDIS_HOST
-    value: redis-slave-0.redis-headless.dev.svc.cluster.local
+    value: redis-slave-0.redis-headless.uat.svc.cluster.local
   - name: REDIS_PORT
     value: '6379'
   - name: REDIS_PASSWORD
@@ -44,7 +44,6 @@ envVars:
         key: REDIS_PASSWORD  
   - name: GLOBAL_ROUTES_PREFIX
     value: connect-inventory-api
-
 
 #envVars:
 #   - name: EXAMPLE_VAR

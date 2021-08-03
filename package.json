@@ -19,7 +19,7 @@
   "keywords": [
     "schematics"
   ],
-  "author": "ltoniut",
+  "author": "Leandro Toniut",
   "license": "MIT",
   "schematics": "./dist/collection.json",
   "dependencies": {
