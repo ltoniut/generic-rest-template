@@ -14,7 +14,7 @@ envVars:
   - name: PORT
     value: '<%= port %>'
   - name: RDS_TYPE
-    value: mssql
+    value: mysql
   - name: RDS_HOSTNAME
     value: 127.0.0.1
   - name: RDS_USERNAME

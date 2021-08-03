@@ -3,7 +3,6 @@ import { ValidationPipe } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 
-import { JwtAuthGuard } from 'modules/auth/jwt-auth.guard';
 import { EnvironmentService } from 'modules/environment/environment.service';
 import { AppModule } from 'app.module';
 
@@ -12,7 +11,6 @@ async function bootstrap(): Promise<void> {
     cors: true,
   });
 
-  app.useGlobalGuards(new JwtAuthGuard());
   app.useGlobalPipes(
     new ValidationPipe({
       transform: true,

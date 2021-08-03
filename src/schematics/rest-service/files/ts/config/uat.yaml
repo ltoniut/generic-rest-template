@@ -14,7 +14,7 @@ envVars:
   - name: PORT
     value: '3008'
   - name: RDS_TYPE
-    value: mssql
+    value: mysql
   - name: RDS_HOSTNAME
     value: us0328-uat-mrs-rdssqldb-00.cbmuittvt2tm.us-east-1.rds.amazonaws.com
   - name: RDS_USERNAME

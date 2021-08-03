@@ -1,0 +1,7 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "id": "SchematicsNestResource",
+  "title": "Nest Resouce Options Schema",
+  "type": "object",
+  "properties": {}
+}
